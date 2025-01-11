@@ -383,6 +383,8 @@ class playGame extends Phaser.Scene{
                                 this.prizeTextHeader.setText('Твій виграш:');
                             }
 
+                            onGamePrize(`Приз: ${gameOptions.slices[prize].text}`);
+
                             // player can spin again
                             this.canSpin = true;
 

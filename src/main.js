@@ -46,6 +46,8 @@ function preload() {
 
 function create() {
 
+    onGameStart();
+
     // Create background
     const bg = this.add.image(300, 400, 'background')
     bg.setDisplaySize(this.sys.game.config.width, this.sys.game.config.height);
@@ -126,6 +128,7 @@ function updateTimer() {
         messageBlock.fillStyle(0x000000, 0.7);  // Black background with opacity
         messageBlock.fillRect(0, 0, 600, 800);  // Position and size of the block
 
+        onGameFinish(score);
         if (score > 60) {
             messageText = this.add.text(50, 400, 'Чудова Робота, крути коло:', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
             setTimeout(() => {
