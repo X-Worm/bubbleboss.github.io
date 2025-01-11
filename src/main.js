@@ -126,17 +126,28 @@ function updateTimer() {
         messageBlock.fillStyle(0x000000, 0.7);  // Black background with opacity
         messageBlock.fillRect(0, 0, 600, 800);  // Position and size of the block
 
-        if (score > 60 && score < 70) {
-            messageText = this.add.text(50, 400, 'Чудова Робота, твій приз:', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        if (score > 60) {
+            messageText = this.add.text(50, 400, 'Чудова Робота, крути коло:', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+            setTimeout(() => {
+                game.destroy(true);
+                showWheel();
+            }, 2000);
 
-            let prizeIndex = Math.floor(Math.random() * prizeElementsScore60_70.length);
-            messageText = this.add.text(50, 450, prizeElementsScore60_70[prizeIndex], { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
-        } else if (score >= 70) {
-            messageText = this.add.text(50, 450, prizeElementsScoreHigher70[0], { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
         } else {
             messageText = this.add.text(50, 400, 'Недостатньо очок, щоб отримати приз :(', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
             messageText = this.add.text(50, 450, 'Спробуй ще раз!', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
         }
+        // if (score > 60 && score < 70) {
+        //     messageText = this.add.text(50, 400, 'Чудова Робота, твій приз:', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        //
+        //     let prizeIndex = Math.floor(Math.random() * prizeElementsScore60_70.length);
+        //     messageText = this.add.text(50, 450, prizeElementsScore60_70[prizeIndex], { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        // } else if (score >= 70) {
+        //     messageText = this.add.text(50, 450, prizeElementsScoreHigher70[0], { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        // } else {
+        //     messageText = this.add.text(50, 400, 'Недостатньо очок, щоб отримати приз :(', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        //     messageText = this.add.text(50, 450, 'Спробуй ще раз!', { fontSize: '28px', fill: '#FFFFFF',  fontFamily: 'Tahoma' });
+        // }
 
     }
 }
